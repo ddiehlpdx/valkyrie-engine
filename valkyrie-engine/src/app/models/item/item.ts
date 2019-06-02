@@ -1,5 +1,4 @@
 import { Guid } from 'node_modules/guid-typescript';
-import { Icon } from '../uielement/icon';
 
 /**
  *
