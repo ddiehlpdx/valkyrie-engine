@@ -1,5 +1,6 @@
 import { Item } from './Item';
 
-export class Equipment extends Item {
+export abstract class Equipment extends Item {
 
+  abstract create(props: object): Item;
 }
