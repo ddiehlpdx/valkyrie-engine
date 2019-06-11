@@ -71,20 +71,35 @@ export abstract class Item {
     if (typeof(lore) === 'string') {
       lore = Guid.parse(lore);
     }
-
   }
 
   getState(): ItemState[] {
     return this.state;
   }
 
-  setState(state: string | Guid): void { // string state.name or Guid state.id
+  /**
+   *
+   * @param state string name of ItemState or Guid id of ItemState. Used to apply states for locking/binding/etc Items.
+   *
+   */
+  setState(state: string | Guid): void {
     if (typeof(state) === 'string') {
       state = Guid.parse(state);
     }
-
   }
 
-  abstract create(props: object): Item;
+  /**
+   *
+   * @param props Item properties as object, or array of item property objects.
+   * @returns new instantiated item or array of items of the child class's type.
+   *
+   */
+  abstract create(props: object | object[]): Item | Item[];
+
+  /**
+   *
+   * Destroy this item, removing it from inventory.
+   *
+   */
   abstract destroy(): void;
 }
