@@ -90,11 +90,11 @@ export abstract class Item {
 
   /**
    *
-   * @param props Item properties as object, or array of item property objects.
+   * @param item Item properties as object, or array of item property objects.
    * @returns new instantiated item or array of items of the child class's type.
    *
    */
-  abstract create(props: object | object[]): Item | Item[];
+  abstract create(item: object | object[]): Item | Item[];
 
   /**
    *
