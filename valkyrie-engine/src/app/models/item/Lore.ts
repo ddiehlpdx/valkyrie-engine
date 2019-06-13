@@ -15,6 +15,6 @@ import { ItemState } from './ItemState';
 export interface Lore {
   id: Guid;
   name: string;
-  description?: string;
+  description: string;
   states: ItemState[];
 }
