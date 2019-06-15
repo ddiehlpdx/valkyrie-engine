@@ -1,0 +1,17 @@
+{
+  "name": "valkyrie-framework",
+  "version": "1.0.0",
+  "description": "A framework for building browser-based tactical RPGs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dave Diehl",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "guid-typescript": "^1.0.9",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.2"
+  }
+}
