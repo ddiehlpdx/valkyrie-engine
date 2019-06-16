@@ -1,5 +1,4 @@
 import { Guid } from 'guid-typescript';
-import { Lore } from './Lore';
 import { ItemState } from './ItemState';
 
 /**
@@ -8,8 +7,7 @@ import { ItemState } from './ItemState';
  * @prop [name] Item's display name.
  * @prop [description] Details about the item.
  * @prop [icon] Display icon's unique identifier.
- * @prop [lore] Array of lore attributed to item.
- * @prop [state] Array of states currently applied to item.
+ * @prop [states] Array of unique IDs of states currently applied to item.
  *
  */
 export abstract class Item {
@@ -17,22 +15,19 @@ export abstract class Item {
   name: string;
   description: string;
   icon: Guid;
-  lore: Lore[];
-  state: ItemState[];
+  states: Guid[];
 
   constructor(
     name: string,
     description: string,
     icon: Guid,
-    lore = new Array<Lore>(),
-    state = new Array<ItemState>()
+    states = new Array<Guid>()
   ) {
     this.id = Guid.create();
     this.name = name;
     this.description = description;
     this.icon = icon;
-    this.lore = lore;
-    this.state = state;
+    this.states = states;
   }
 
   getId(): Guid {
@@ -63,29 +58,24 @@ export abstract class Item {
     this.icon = iconId;
   }
 
-  getLore(): Lore[] {
-    return this.lore;
+  getStates(): ItemState[] {
+    // TODO: Return array of ItemStates, retrieving by ID for each ID in this.states array.
+    return [];
   }
 
-  setLore(lore: string | Guid): void {
-    if (typeof(lore) === 'string') {
-      lore = Guid.parse(lore);
+  setState(stateId: string | Guid): void {
+    if (typeof(stateId) === 'string') {
+      stateId = Guid.parse(stateId);
     }
   }
 
-  getState(): ItemState[] {
-    return this.state;
-  }
-
-  /**
-   *
-   * @param state string name of ItemState or Guid id of ItemState. Used to apply states for locking/binding/etc Items.
-   *
-   */
-  setState(state: string | Guid): void {
-    if (typeof(state) === 'string') {
-      state = Guid.parse(state);
-    }
+  setCustomState(
+    name: string,
+    description: string,
+    iconEffects: object = {},
+    subIconId?: Guid
+  ): void {
+    
   }
 
   /**
