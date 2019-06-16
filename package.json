@@ -2,7 +2,7 @@
   "name": "valkyrie-framework",
   "version": "1.0.0",
   "description": "A framework for building browser-based tactical RPGs.",
-  "main": "index.js",
+  "main": "valkyrie.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
