@@ -13,21 +13,6 @@ export abstract class Equipment extends Item {
   stats: object;
   rules: object;
 
-  /**
-   *
-   * Callback method executed when Item is equipped to a unit.
-   *
-   */
-  onEquip(): void {
-
-  }
-
-  /**
-   *
-   * Callback method executed when Item is removed from a unit.
-   *
-   */
-  onRemove(): void {
-
-  }
+  abstract onEquip(): void;
+  abstract onRemove(): void;
 }
