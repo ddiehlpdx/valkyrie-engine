@@ -17,17 +17,12 @@ export abstract class Item {
   icon: Guid;
   states: Guid[];
 
-  constructor(
-    name: string,
-    description: string,
-    icon: Guid,
-    states = new Array<Guid>()
-  ) {
+  constructor(params: object) {
     this.id = Guid.create();
-    this.name = name;
-    this.description = description;
-    this.icon = icon;
-    this.states = states;
+    this.name = params['name'];
+    this.description = params['description'];
+    this.icon = params['icon'];
+    this.states = params['states'];
   }
 
   getId(): Guid {
