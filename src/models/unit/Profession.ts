@@ -1,6 +1,6 @@
 import { Guid } from 'guid-typescript';
 import { Ability } from '../ability/Ability';
-import { Action } from '../battlefield/Action';
+import { Action } from '../action/Action';
 
 export class Profession {
   id: Guid;
