@@ -14,7 +14,6 @@ import { Profession } from './models/unit/Profession';
 import { Unit } from './models/unit/Unit';
 
 import * as THREE from '../node_modules/three';
-import { PerspectiveCamera, Scene, BoxGeometry, MeshNormalMaterial, Mesh, WebGLRenderer } from '../node_modules/three';
 
 export class Valkyrie {
   init(): void {
