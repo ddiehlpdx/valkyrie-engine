@@ -24,14 +24,14 @@ export class ItemState {
   iconEffects: object;
   subIconId: Guid;
   
-  constructor(params: object) {
+  constructor(params: any) {
     this.id = Guid.create();
-    this.name = params['name'];
-    this.description = params['description'];
-    this.iconEffects = params['iconEffects'];
+    this.name = params.name;
+    this.description = params.description;
+    this.iconEffects = params.iconEffects;
     
-    if (params['subIconId']) {
-      this.subIconId = params['subIconId'];
+    if (params.subIconId) {
+      this.subIconId = params.subIconId;
     }
   }
 }
