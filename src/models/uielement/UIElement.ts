@@ -5,10 +5,10 @@ import { Guid } from 'guid-typescript';
  * @prop [id] UI Element's unique identifier.
  *
  */
-export class UIElement {
+export abstract class UIElement {
   id: Guid;
 
-  constructor() {
+  constructor(params: any) {
     this.id = Guid.create();
   }
 }

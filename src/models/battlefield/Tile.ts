@@ -13,4 +13,12 @@ export class Tile {
   terrain: Guid;
   height: number;
   position: object;
+
+  constructor(params: TileConfiguration) {
+
+  }
+}
+
+export interface TileConfiguration {
+  
 }

@@ -1,6 +1,10 @@
 import { Guid } from 'guid-typescript';
 import { ItemState } from './ItemState';
 
+export { Consumable } from './Consumable';
+export { Equipment } from './Equipment';
+export { ItemState } from './ItemState';
+
 /**
  *
  * @prop [id] Item's unique identifier.

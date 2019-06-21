@@ -24,7 +24,7 @@ export class ItemState {
   iconEffects: object;
   subIconId: Guid;
   
-  constructor(params: any) {
+  constructor(params: ItemStateConfiguration) {
     this.id = Guid.create();
     this.name = params.name;
     this.description = params.description;
@@ -34,4 +34,11 @@ export class ItemState {
       this.subIconId = params.subIconId;
     }
   }
+}
+
+export interface ItemStateConfiguration {
+  name: string;
+  description: string;
+  iconEffects: object;
+  subIconId: Guid;
 }

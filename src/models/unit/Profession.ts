@@ -20,7 +20,7 @@ export class Profession {
   abilities: object;
   actions: Guid[];
 
-  constructor(params: any) {
+  constructor(params: ProfessionConfiguration) {
     this.id = Guid.create();
     this.name = params.name;
     this.description = params.description;
@@ -28,4 +28,12 @@ export class Profession {
     this.abilities = params.abilities;
     this.actions = params.actions;
   }
+}
+
+export interface ProfessionConfiguration {
+  name: string;
+  description: string;
+  stats: object;
+  abilities: object;
+  actions: Guid[];
 }

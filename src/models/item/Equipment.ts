@@ -1,4 +1,3 @@
-import { Guid } from 'guid-typescript';
 import { Item } from './Item';
 
 /**
@@ -9,9 +8,16 @@ import { Item } from './Item';
  *
  */
 export abstract class Equipment extends Item {
-  slot: Guid;
+  slot: string;
   stats: object;
   rules: object;
+
+  constructor(params: any) {
+    super(params);
+    this.slot = params.slot;
+    this.stats = params.stats;
+    this.rules = params.rules;
+  }
 
   abstract onEquip(): void;
   abstract onRemove(): void;

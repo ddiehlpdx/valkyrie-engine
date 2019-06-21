@@ -1,5 +1,6 @@
 import { Guid } from 'guid-typescript';
 import { Tile } from './Tile';
+import * as THREE from 'three';
 
 /**
  * 
@@ -16,7 +17,11 @@ export class Battlefield {
   name: string;
   layout: Tile[][];
 
-  constructor() {
+  constructor(params: BattlefieldConfiguration) {
     
   }
+}
+
+export interface BattlefieldConfiguration {
+
 }

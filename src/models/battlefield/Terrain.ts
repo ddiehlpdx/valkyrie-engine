@@ -14,10 +14,16 @@ export class Terrain {
   texture: Guid;
   traversable: boolean;
 
-  constructor(params: any) {
+  constructor(params: TerrainConfiguration) {
     this.id = Guid.create();
     this.name = params.name;
     this.texture = params.texture;
     this.traversable = params.traversable;
   }
+}
+
+export interface TerrainConfiguration {
+  name: string,
+  texture: Guid,
+  traversable: boolean
 }

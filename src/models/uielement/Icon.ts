@@ -14,4 +14,12 @@ export class Icon extends UIElement {
   id: Guid;
   resourceId: Guid;
   properties: object;
+
+  constructor(params: IconConfiguration) {
+    super(params);
+  }
+}
+
+export interface IconConfiguration {
+
 }
