@@ -1,3 +1,4 @@
+import { Guid } from 'guid-typescript';
 import { Ability } from './models/ability/Ability';
 import { Action } from './models/action/Action';
 import { Battlefield } from './models/battlefield/Battlefield';
@@ -16,15 +17,21 @@ import { Unit } from './models/unit/Unit';
 import * as THREE from 'three';
 
 export default abstract class Valkyrie {
-  constructor(params: ValkyrieConfiguration) {
-    console.log(params);
+
+  /**
+   * 
+   * @param params
+   * 
+   */
+  public static init(params: ValkyrieConfiguration): void {
+    console.log('init fired');
   }
 
-  init(): void {
-
+  public static loadBattlefield(params: BattlefieldConfiguration): void {
+    console.log('loadBattlefield fired');
   }
 
-  test(): boolean {
+  public static test(): boolean {
     if (confirm('Does this work?')) {
       return true;
     }
@@ -35,7 +42,11 @@ export default abstract class Valkyrie {
 export interface ValkyrieConfiguration {
   windowWidth?: string | number,        // Width of game window; default window.innerWidth
   windowHeight?: string | number,       // Height of game window; default window.innerHeight
-  dbName?: string,                      // Database name where game data is stored (if applicable); default ''
-  dbLogin?: string,                     // Login for database; default ''
-  dbPassword?: string,                  // Password for database; default ''
+  // TODO: Add db params and functionality for projects made with builder.
+}
+
+export interface BattlefieldConfiguration {
+  battlefield: Guid,        // Unique ID of battlefield to load
+  squad?: Unit[],           // Player's squad; default player's currently set squad
+  enemies?: Unit[],         // Enemy squad, default random selection by relative level
 }
