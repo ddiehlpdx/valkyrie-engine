@@ -1,5 +1,7 @@
 import { Guid } from 'guid-typescript';
 
+export { Icon } from './Icon';
+
 /**
  *
  * @prop [id] UI Element's unique identifier.
