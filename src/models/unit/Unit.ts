@@ -1,5 +1,4 @@
 import { Guid } from 'guid-typescript';
-import { Profession } from './Profession';
 
 export { Profession } from './Profession';
 
@@ -20,7 +19,7 @@ export class Unit {
   agility: number;
   intellect: number;
   willpower: number;
-  profession: Profession;
+  profession: Guid;
 
   constructor(params: UnitConfiguration) {
     this.id = Guid.create();
