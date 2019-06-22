@@ -1,5 +1,6 @@
 import { Guid } from 'guid-typescript';
-import { ItemState } from './ItemState';
+import { ItemState, ItemStateConfiguration } from './ItemState';
+import { Icon } from '../uielement/UIElement';
 
 export { Consumable } from './Consumable';
 export { Equipment } from './Equipment';
@@ -49,11 +50,16 @@ export abstract class Item {
     this.description = description;
   }
 
-  getIcon(): Guid {
-    return this.icon;
+  getIcon(): Icon {
+    // TODO: Return full Icon object based on ID.
+    return new Icon({});
   }
 
-  setIcon(iconId: Guid): void {
+  setIcon(iconId: Guid | string): void {
+    if (typeof(iconId) === 'string') {
+      iconId = Guid.parse(iconId);
+    }
+
     this.icon = iconId;
   }
 
@@ -62,18 +68,13 @@ export abstract class Item {
     return [];
   }
 
-  setState(stateId: string | Guid): void {
+  setState(stateId: Guid | string): void {
     if (typeof(stateId) === 'string') {
       stateId = Guid.parse(stateId);
     }
   }
 
-  setCustomState(
-    name: string,
-    description: string,
-    iconEffects: object = {},
-    subIconId?: Guid
-  ): void {
+  setCustomState(params: ItemStateConfiguration): void {
     
   }
 
