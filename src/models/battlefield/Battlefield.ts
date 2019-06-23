@@ -1,6 +1,8 @@
 import { Guid } from 'guid-typescript';
 import { Tile } from './Tile';
-import * as THREE from 'three';
+
+export { Terrain } from './Terrain';
+export { Tile } from './Tile';
 
 /**
  * 
@@ -20,6 +22,7 @@ export class Battlefield {
   constructor(params: BattlefieldConfiguration) {
     
   }
+
 }
 
 export interface BattlefieldConfiguration {
