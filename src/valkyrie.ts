@@ -1,42 +1,42 @@
 import { Guid } from 'guid-typescript';
 import { Ability } from './models/ability/Ability';
 import { Action } from './models/action/Action';
-import { Battlefield } from './models/battlefield/Battlefield';
-import { Terrain } from './models/battlefield/Terrain';
-import { Tile } from './models/battlefield/Tile';
-import { Inventory } from './models/player/Inventory';
-import { Consumable } from './models/item/Consumable';
-import { Equipment } from './models/item/Equipment';
-import { Item } from './models/item/Item';
-import { ItemState } from './models/item/ItemState';
-import { Icon } from './models/uielement/Icon';
-import { UIElement } from './models/uielement/UIElement';
-import { Profession } from './models/unit/Profession';
-import { Unit } from './models/unit/Unit';
+import { Battlefield, Terrain, Tile } from './models/battlefield/Battlefield';
+import { Player, Inventory, Squad } from './models/player/Player';
+import { Item, Consumable, Equipment, ItemState } from './models/item/Item';
+import { UIElement, Icon } from './models/uielement/UIElement';
+import { Unit, Profession } from './models/unit/Unit';
+import * as THREE from '../node_modules/three';
 
-import * as THREE from 'three';
-
+export { Valkyrie as VE };
 export default abstract class Valkyrie {
-
+  
   /**
    * 
    * @param params
    * 
    */
-  public static init(params: ValkyrieConfiguration): void {
+  public static init(params?: ValkyrieConfiguration): void {
     console.log('init fired');
+
+    const scene = new THREE.Scene();
+    const geometry = new THREE.IcosahedronGeometry(200, 1);
+    const material = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true, wireframeLinewidth: 2 });
+    const mesh = new THREE.Mesh(geometry, material);
+
+    scene.add(mesh);
+
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
   }
 
-  public static loadBattlefield(params: BattlefieldConfiguration): void {
+  public static loadBattlefield(battlefield: Battlefield): void {
     console.log('loadBattlefield fired');
-  }
 
-  public static test(): boolean {
-    if (confirm('Does this work?')) {
-      return true;
-    }
-    else return false;
   }
+  
 }
 
 export interface ValkyrieConfiguration {
