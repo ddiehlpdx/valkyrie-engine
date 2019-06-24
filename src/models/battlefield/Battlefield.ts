@@ -23,6 +23,10 @@ export class Battlefield {
     
   }
 
+  public static Load(): void {
+    console.log('STATIC: Loading battlefield...');
+  }
+
 }
 
 export interface BattlefieldConfiguration {
