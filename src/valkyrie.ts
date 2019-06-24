@@ -6,33 +6,62 @@ import { Player, Inventory, Squad } from './models/player/Player';
 import { Item, Consumable, Equipment, ItemState } from './models/item/Item';
 import { UIElement, Icon } from './models/uielement/UIElement';
 import { Unit, Profession } from './models/unit/Unit';
-import * as THREE from '../node_modules/three';
+import * as THREE from 'three';
 
 export { Valkyrie as VE };
-export default abstract class Valkyrie {
+export default class Valkyrie {
+  private static renderer: THREE.Renderer;
+  private static scene: THREE.Scene;
+  private static geometry: THREE.Geometry;
+  private static material: THREE.Material;
+  private static mesh: THREE.Mesh;
+  private static camera: THREE.Camera;
   
   /**
    * 
    * @param params
    * 
    */
-  public static init(params?: ValkyrieConfiguration): void {
+  private static init(params?: ValkyrieConfiguration): void {
     console.log('init fired');
 
-    const scene = new THREE.Scene();
-    const geometry = new THREE.IcosahedronGeometry(200, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true, wireframeLinewidth: 2 });
-    const mesh = new THREE.Mesh(geometry, material);
+    Valkyrie.scene = new THREE.Scene();
+    Valkyrie.geometry = new THREE.IcosahedronGeometry(200, 1);
+    Valkyrie.material = new THREE.MeshNormalMaterial({ wireframe: true, wireframeLinewidth: 2 });
+    Valkyrie.mesh = new THREE.Mesh(Valkyrie.geometry, Valkyrie.material);
 
-    scene.add(mesh);
+    Valkyrie.scene.add(Valkyrie.mesh);
 
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    Valkyrie.renderer = new THREE.WebGLRenderer();
+    Valkyrie.renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(Valkyrie.renderer.domElement);
 
+    Valkyrie.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+    Valkyrie.camera.position.z = 500;
+
+    Valkyrie.renderer.render(Valkyrie.scene, Valkyrie. camera);
+
+    Valkyrie.animateScene();
+
+    const text = new THREE.TextGeometry('Unit Name', {
+      size: 30,
+      height: 20,
+      bevelEnabled: false
+    });
+    
+    
   }
 
-  public static loadBattlefield(battlefield: Battlefield): void {
+  private static animateScene(): void {
+    requestAnimationFrame(Valkyrie.animateScene);
+
+    Valkyrie.mesh.rotation.x = Date.now() * .0001;
+    Valkyrie.mesh.rotation.y = Date.now() * .00015;
+
+    Valkyrie.renderer.render(Valkyrie.scene, Valkyrie.camera);
+  }
+
+  private static loadBattlefield(battlefield: Battlefield): void {
     console.log('loadBattlefield fired');
 
   }
