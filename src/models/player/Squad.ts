@@ -4,7 +4,6 @@ import { Item, Equipment, Consumable, ItemState } from '../item/Item';
 import { Ability } from '../ability/Ability';
 
 export class Squad {
-  units: Unit[];
 
   constructor(params: SquadConfiguration) {
 
@@ -12,5 +11,5 @@ export class Squad {
 }
 
 export interface SquadConfiguration {
-
+  units: Unit[];
 }
