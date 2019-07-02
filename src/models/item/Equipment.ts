@@ -1,4 +1,5 @@
 import { Item } from './Item';
+import { Guid } from 'guid-typescript';
 
 /**
  *
@@ -21,4 +22,9 @@ export abstract class Equipment extends Item {
 
   abstract onEquip(): void;
   abstract onRemove(): void;
+}
+
+export interface EquipRules {
+  level?: number | string;
+  profession?: Guid[];
 }
