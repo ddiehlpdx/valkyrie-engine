@@ -7,12 +7,8 @@ import { Guid } from 'guid-typescript';
  */
 export class Inventory {
 
-  constructor(params: InventoryConfiguration) {
+  constructor(params: Partial<Inventory>) {
 
   }
-
-}
-
-export interface InventoryConfiguration {
 
 }

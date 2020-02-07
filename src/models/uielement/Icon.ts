@@ -3,7 +3,6 @@ import { UIElement } from './UIElement';
 
 /**
  *
- * @prop [id] Icon's unique identifier.
  * @prop [resourceId] Unique identifier of graphical resource.
  * @prop [properties] Object containing additional properties for the icon. Default properties:
  *        [tint] Color value for masking over the item. Good for reusing icons by recoloring them.
@@ -11,15 +10,10 @@ import { UIElement } from './UIElement';
  *
  */
 export class Icon extends UIElement {
-  id: Guid;
-  resourceId: Guid;
-  properties: object;
+  private resourceId: Guid;
+  private properties: object;
 
-  constructor(params: IconConfiguration) {
+  constructor(params: Partial<Icon>) {
     super(params);
   }
-}
-
-export interface IconConfiguration {
-
 }

@@ -1,5 +1,5 @@
 import { Guid } from 'guid-typescript';
-import { ItemState, ItemStateConfiguration } from './ItemState';
+import { ItemState } from './ItemState';
 import { Icon } from '../uielement/UIElement';
 
 export { Consumable } from './Consumable';
@@ -16,66 +16,14 @@ export { ItemState } from './ItemState';
  *
  */
 export abstract class Item {
-  id: Guid;
-  name: string;
-  description: string;
-  icon: Guid;
-  states: Guid[];
+  private id: Guid;
+  protected name: string;
+  protected description: string;
+  protected icon: Guid;
+  protected states: Guid[];
 
-  constructor(params: any) {
+  constructor(params: Partial<Item>) {
     this.id = Guid.create();
-    this.name = params.name;
-    this.description = params.description;
-    this.icon = params.icon;
-    this.states = params.states;
-  }
-
-  getId(): Guid {
-    return this.id;
-  }
-
-  getName(): string {
-    return this.name;
-  }
-
-  setName(name: string): void {
-    this.name = name;
-  }
-
-  getDescription(): string {
-    return this.description;
-  }
-
-  setDescription(description: string): void {
-    this.description = description;
-  }
-
-  getIcon(): Icon {
-    // TODO: Return full Icon object based on ID.
-    return new Icon({});
-  }
-
-  setIcon(iconId: Guid | string): void {
-    if (typeof(iconId) === 'string') {
-      iconId = Guid.parse(iconId);
-    }
-
-    this.icon = iconId;
-  }
-
-  getStates(): ItemState[] {
-    // TODO: Return array of ItemStates, retrieving by ID for each ID in this.states array.
-    return [];
-  }
-
-  setState(stateId: Guid | string): void {
-    if (typeof(stateId) === 'string') {
-      stateId = Guid.parse(stateId);
-    }
-  }
-
-  setCustomState(params: ItemStateConfiguration): void {
-    
   }
 
   /**

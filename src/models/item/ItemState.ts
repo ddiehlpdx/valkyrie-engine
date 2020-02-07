@@ -18,27 +18,13 @@ import { Guid } from 'guid-typescript';
  */
 
 export class ItemState {
-  id: Guid;
-  name: string;
-  description: string;
-  iconEffects: object;
-  subIconId: Guid;
+  private id: Guid;
+  private name: string;
+  private description: string;
+  private iconEffects: object;
+  private subIconId: Guid;
   
-  constructor(params: ItemStateConfiguration) {
+  constructor(params: Partial<ItemState>) {
     this.id = Guid.create();
-    this.name = params.name;
-    this.description = params.description;
-    this.iconEffects = params.iconEffects;
-    
-    if (params.subIconId) {
-      this.subIconId = params.subIconId;
-    }
   }
-}
-
-export interface ItemStateConfiguration {
-  name: string;
-  description: string;
-  iconEffects: object;
-  subIconId: Guid;
 }

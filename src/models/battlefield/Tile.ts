@@ -9,16 +9,12 @@ import { Guid } from 'guid-typescript';
  *
  */
 export class Tile {
-  id: Guid;
-  terrain: Guid;
-  height: number;
-  position: object;
+  private id: Guid;
+  private terrain: Guid;
+  private height: number;
+  private position: object;
 
-  constructor(params: TileConfiguration) {
+  constructor(params: Partial<Tile>) {
 
   }
-}
-
-export interface TileConfiguration {
-  
 }

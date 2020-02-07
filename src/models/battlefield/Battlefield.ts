@@ -15,20 +15,15 @@ export { Tile } from './Tile';
  * 
  */
 export class Battlefield {
-  id: Guid;
-  name: string;
-  layout: Tile[][];
+  private id: Guid;
+  private name: string;
+  private layout: Tile[][];
 
-  constructor(params: BattlefieldConfiguration) {
+  constructor(params: Partial<Battlefield>) {
     
   }
 
   public static Load(): void {
     console.log('STATIC: Loading battlefield...');
   }
-
-}
-
-export interface BattlefieldConfiguration {
-
 }

@@ -9,21 +9,12 @@ import { Guid } from 'guid-typescript';
  * 
  */
 export class Terrain {
-  id: Guid;
-  name: string;
-  texture: Guid;
-  traversable: boolean;
+  private id: Guid;
+  private name: string;
+  private texture: Guid;
+  private traversable: boolean;
 
-  constructor(params: TerrainConfiguration) {
+  constructor(params: Partial<Terrain>) {
     this.id = Guid.create();
-    this.name = params.name;
-    this.texture = params.texture;
-    this.traversable = params.traversable;
   }
-}
-
-export interface TerrainConfiguration {
-  name: string,
-  texture: Guid,
-  traversable: boolean
 }

@@ -6,14 +6,11 @@ import { Guid } from 'guid-typescript';
  *
  */
 export class Action {
-  id: Guid;
-  name: string;
+  private id: Guid;
+  private name: string;
+  private description: string;
   
-  constructor(params: ActionConfiguration) {
-
+  constructor(params: Partial<Action>) {
+    this.id = Guid.create();
   }
-}
-
-export interface ActionConfiguration {
-  
 }

@@ -3,13 +3,15 @@ import { Unit, Profession } from '../unit/Unit';
 import { Item, Equipment, Consumable, ItemState } from '../item/Item';
 import { Ability } from '../ability/Ability';
 
+/**
+ * 
+ * 
+ * 
+ */
 export class Squad {
+  private units: Unit[];
 
-  constructor(params: SquadConfiguration) {
+  constructor(params: Partial<Squad>) {
 
   }
-}
-
-export interface SquadConfiguration {
-  units: Unit[];
 }

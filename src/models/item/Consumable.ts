@@ -2,7 +2,7 @@ import { Item } from './Item';
 
 export class Consumable extends Item {
   
-  constructor(params: ConsumableConfiguration) {
+  constructor(params: Partial<Consumable>) {
     super(params);
   }
 
@@ -13,9 +13,5 @@ export class Consumable extends Item {
   destroy(): void {
     throw new Error("Method not implemented.");
   }
-  
-}
-
-export interface ConsumableConfiguration {
   
 }

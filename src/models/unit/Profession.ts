@@ -13,27 +13,14 @@ import { Guid } from 'guid-typescript';
  * 
  */
 export class Profession {
-  id: Guid;
-  name: string;
-  description: string;
-  stats: object;
-  abilities: object;
-  actions: Guid[];
+  private id: Guid;
+  private name: string;
+  private description: string;
+  private stats: object;
+  private abilities: object;
+  private actions: Guid[];
 
-  constructor(params: ProfessionConfiguration) {
+  constructor(params: Partial<Profession>) {
     this.id = Guid.create();
-    this.name = params.name;
-    this.description = params.description;
-    this.stats = params.stats;
-    this.abilities = params.abilities;
-    this.actions = params.actions;
   }
-}
-
-export interface ProfessionConfiguration {
-  name: string;
-  description: string;
-  stats: object;
-  abilities: object;
-  actions: Guid[];
 }

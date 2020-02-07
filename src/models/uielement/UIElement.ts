@@ -7,24 +7,17 @@ export { Icon } from './Icon';
  *
  */
 export abstract class UIElement {
-  id: Guid;
-  name: string;
-  height: number;
-  width: number;
-  posX: number;
-  posY: number;
-  posZ: number | 'top' | 'bottom';
-  opacity: number;
+  private id: Guid;
+  private name: string;
+  protected height: number;
+  protected width: number;
+  protected posX: number;
+  protected posY: number;
+  protected posZ: number | 'top' | 'bottom';
+  protected opacity: number;
   
 
-  constructor(params: any) {
+  constructor(params: Partial<UIElement>) {
     this.id = Guid.create();
-    this.name = params.name;
-    this.height = params.height;
-    this.width = params.width;
-    this.posX = params.posX || 0;
-    this.posY = params.posY || 0;
-    this.posZ = params.posZ || 'top';
-    this.opacity = params.opacity || 1;
   }
 }
