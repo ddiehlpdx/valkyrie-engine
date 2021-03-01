@@ -14,7 +14,7 @@
     "commonjs": "0.0.1",
     "express": "^4.17.1",
     "guid-typescript": "^1.0.9",
-    "three": "^0.105.2",
+    "three": "^0.125.0",
     "tslint": "^5.17.0",
     "typescript": "^3.5.2"
   }
